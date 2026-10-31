@@ -10,6 +10,7 @@ delete-alias nv
 delete-alias ls
 
 Set-Alias l ls
+Set-Alias lsd ls # for typos
 Set-Alias c clear
 function e { exit }
 

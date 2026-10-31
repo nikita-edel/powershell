@@ -21,7 +21,10 @@
 
 	Linux = @{
 		Run = @(
+			'linux/env.ps1'
 			'linux/setup.ps1'
+			'linux/ls.ps1'
+			'linux/ghostty.ps1'
 		)
 		DontRun = @()
 	}
