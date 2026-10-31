@@ -1,0 +1,27 @@
+# Paths are relative to this folder. All runs first, then the OS files.
+# An OS is a list of files, or @{ Run = ...; DontRun = ... }.
+# DontRun skips files, also ones from All.
+@{
+	All = @(
+		'variables.ps1'
+		'setup.ps1'
+		'alias.ps1'
+		'functions.ps1'
+		'ble.ps1'
+		'third-party.ps1'
+	)
+
+	Windows = @(
+		'windows/obs.ps1'
+		'windows/sh.ps1'
+		'windows/touch.ps1'
+		'windows/ls.ps1'
+	)
+
+	Linux = @{
+		Run = @(
+			'linux/setup.ps1'
+		)
+		DontRun = @()
+	}
+}
