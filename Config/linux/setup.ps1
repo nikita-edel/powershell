@@ -3,6 +3,8 @@ $env:EDITOR = 'nvim'
 $global:trash = Join-Path $data_home Trash
 $global:bconf = Join-Path $HOME .bashrc
 
+$env:SSH_AUTH_SOCK = "$env:XDG_RUNTIME_DIR/ssh-agent.socket"
+
 Set-Alias ogv Out-ConsoleGridView
 
 Set-Alias clip Set-Clipboard

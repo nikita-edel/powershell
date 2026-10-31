@@ -26,6 +26,7 @@ ble-bind -m vi_xmap -s 'Y' '" + y'
 
 bleopt complete_auto_history_cwd=1
 bleopt complete_auto_history_validate=command:path
+bleopt complete_auto_history_multiline=0
 
 bleopt 'prompt_capslock_indicator=  \e[31m^^\e[m'
 bleopt keymap_vi_mode_show=
