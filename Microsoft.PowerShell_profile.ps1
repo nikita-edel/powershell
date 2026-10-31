@@ -1,11 +1,8 @@
-# this config needs pwsh 7, Windows PowerShell 5.1 skips it
-
 if ($PSVersionTable.PSVersion.Major -lt 7) { return }
 
-$global:ps_config = Join-Path (Split-Path $PROFILE -Parent) 'Config'
-$global:ps_profile = $ps_config
+$global:ps_profile = Split-Path $PROFILE -Parent
+$global:ps_config = "$ps_profile/Config"
 
-# every file in ps-util/ loads first, so the rest of the config can use it
 foreach ($util in Get-ChildItem "$ps_config/ps-util" -Filter *.ps1) {
 	. $util.FullName
 }

@@ -1,5 +1,3 @@
-# Install-PSResource ble, Microsoft.PowerShell.UnixTabCompletion, Microsoft.PowerShell.ConsoleGuiTools
-
 $env:EDITOR = 'nvim'
 
 Set-Alias ogv Out-ConsoleGridView

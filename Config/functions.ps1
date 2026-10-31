@@ -25,3 +25,7 @@ function git-init {
 		git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 	}
 }
+
+function git-deinit {
+	ssh-add -D
+}
