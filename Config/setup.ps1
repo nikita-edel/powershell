@@ -13,7 +13,9 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
 
 # throws when output is redirected
 if (-not [Console]::IsOutputRedirected) {
-	Set-PSReadLineOption -PredictionSource History -PredictionViewStyle ListView
+	# ListView warns at every shell start below 50x5, and -WarningAction doesn't stop it
+	$view = if ([Console]::WindowWidth -ge 50 -and [Console]::WindowHeight -ge 5) { 'ListView' } else { 'InlineView' }
+	Set-PSReadLineOption -PredictionSource History -PredictionViewStyle $view
 }
 
 Set-PSReadLineKeyHandler -Chord 'Alt+j' -Function NextSuggestion

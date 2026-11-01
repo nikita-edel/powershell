@@ -39,3 +39,17 @@ bleopt 'prompt_input_after=\q{capslock}'
 bleopt prompt_input_after_position=before
 
 bleopt complete_auto_history_fuzzy=1
+
+if (Get-Command fzf -ErrorAction Ignore) {
+	ble-import integration/fzf
+	ble-bind -Reset 'C-t', 'C-r', 'M-c'
+
+	ble-bind -Always -f M-u fzf-file-widget
+	ble-bind -Always -f M-i fzf-history-widget
+	ble-bind -Always -f M-o fzf-cd-widget
+}
+
+bleopt complete_auto_view_tips=0
+bleopt complete_auto_view_min_width=50
+bleopt complete_auto_view_min_height=10
+bleopt complete_auto_hide_command_paths=1
