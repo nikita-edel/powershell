@@ -98,3 +98,14 @@ function git-init {
 function git-deinit {
 	ssh-add -D
 }
+
+if (Get-Command eza -ErrorAction Ignore) {
+	function ls {
+		eza --color=auto --git --icons=auto --no-time --no-user --no-permissions @args
+	}
+
+} else {
+	if ($IsWindows) {
+		. "$PSScriptRoot\windows\ls.ps1"
+	}
+}
