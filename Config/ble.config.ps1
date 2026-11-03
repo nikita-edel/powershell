@@ -41,6 +41,8 @@ bleopt prompt_input_after_position=before
 bleopt complete_auto_history_fuzzy=1
 
 if (Get-Command fzf -ErrorAction Ignore) {
+	$env:FZF_DEFAULT_OPTS = '--bind=alt-j:down,alt-k:up,ctrl-d:half-page-down,ctrl-u:half-page-up'
+
 	ble-import integration/fzf
 	ble-bind -Reset 'C-t', 'C-r', 'M-c'
 
