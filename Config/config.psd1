@@ -18,6 +18,7 @@
 		# 'windows/ls.ps1'
 		'windows/display.ps1'
 		'windows/boot.ps1'
+		'windows/getlock.ps1'
 	)
 
 	Linux = @{
