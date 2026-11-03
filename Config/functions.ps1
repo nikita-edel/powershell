@@ -109,3 +109,7 @@ if (Get-Command eza -ErrorAction Ignore) {
 		. "$PSScriptRoot\windows\ls.ps1"
 	}
 }
+
+function lsa {
+	ls -a @args
+}
