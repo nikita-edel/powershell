@@ -26,6 +26,3 @@ if ($IsWindows) {
 	function r0 { systemctl reboot }
 }
 
-if (Get-Command rg -ErrorAction Ignore) {
-	Set-Alias grep rg
-}

@@ -46,9 +46,9 @@ if (Get-Command fzf -ErrorAction Ignore) {
 	ble-import integration/fzf
 	ble-bind -Reset 'C-t', 'C-r', 'M-c'
 
-	ble-bind -Always -f M-u fzf-file-widget
-	ble-bind -Always -f M-i fzf-history-widget
-	ble-bind -Always -f M-o fzf-cd-widget
+	ble-bind -Always -f M-u fzf-history-widget
+	ble-bind -Always -f M-i fzf-file-widget
+	ble-bind -Always -f M-o fzf-command-widget
 }
 
 bleopt complete_auto_view_tips=0

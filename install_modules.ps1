@@ -3,11 +3,11 @@
 $modules = @('ble')
 
 if ($IsWindows) {
-	$modules += 'Sixel', 'DisplayConfig'
+	$modules += 'Sixel', 'DisplayConfig', 'PSGnuUtils'
 }
 
 if ($IsLinux) {
-	$modules += 'Microsoft.PowerShell.UnixTabCompletion', 'Microsoft.PowerShell.ConsoleGuiTools'
+	$modules += 'Microsoft.PowerShell.ConsoleGuiTools'
 }
 
 foreach ($name in $modules) {
