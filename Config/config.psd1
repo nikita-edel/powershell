@@ -9,6 +9,7 @@
 		'functions.ps1'
 		'ble.ps1'
 		'third-party.ps1'
+		'git.ps1'
 	)
 
 	Windows = @(
