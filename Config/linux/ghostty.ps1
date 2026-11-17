@@ -4,6 +4,7 @@ if ($env:TERM_PROGRAM -eq 'ghostty') {
 	function Invoke-Starship-PreCommand {
 		$cwd = (Get-Location -PSProvider FileSystem).ProviderPath
 		$uri = ([UriBuilder]@{ Scheme = 'file'; Host = [Environment]::MachineName; Path = $cwd }).Uri.AbsoluteUri
+		# redraw=0: pwsh doesn't repaint its prompt on resize, so ghostty must not clear it
 		$Host.UI.Write("`e]133;A`a`e]7;$uri`a")
 	}
 }
