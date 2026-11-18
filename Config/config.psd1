@@ -27,7 +27,7 @@
 		Run = @(
 			'linux/env.ps1'
 			'linux/setup.ps1'
-			'linux/ghostty.ps1'
+			'linux/shell-integration.ps1'
 		)
 		DontRun = @()
 	}
