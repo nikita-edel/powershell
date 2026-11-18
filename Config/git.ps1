@@ -6,6 +6,10 @@ function copy-last-commit {
 	git rev-parse HEAD | clip
 }
 
+function gitp {
+	git pull @args
+}
+
 function git-cherry-all {
 	param(
 		[String] $message
