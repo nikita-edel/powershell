@@ -2,6 +2,12 @@ function tgview {
 	Set-PSReadLineOption -PredictionViewStyle $(if ((Get-PSReadLineOption).PredictionViewStyle -eq 'ListView') { 'InlineView' } else { 'ListView' })
 }
 
+function Restart-Pwsh {
+    $pwsh = (Get-Process -Id $PID).Path
+    & $pwsh @args
+    exit
+}
+
 if ($IsWindows) {
 	function rmf { Remove-Item @args -Force }
 
