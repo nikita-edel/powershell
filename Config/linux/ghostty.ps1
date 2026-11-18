@@ -5,6 +5,6 @@ if ($env:TERM_PROGRAM -eq 'ghostty') {
 		$cwd = (Get-Location -PSProvider FileSystem).ProviderPath
 		$uri = ([UriBuilder]@{ Scheme = 'file'; Host = [Environment]::MachineName; Path = $cwd }).Uri.AbsoluteUri
 		# redraw=0: pwsh doesn't repaint its prompt on resize, so ghostty must not clear it
-		$Host.UI.Write("`e]133;A`a`e]7;$uri`a")
+		$Host.UI.Write("`e]133;A;redraw=0`a`e]7;$uri`a")
 	}
 }
