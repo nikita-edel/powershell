@@ -17,6 +17,8 @@ function e { exit }
 Set-Alias n nvim
 Set-Alias nv nvim
 
+Set-Alias dirsz Get-Size
+
 if ($IsWindows) {
 	Set-Alias s0 Stop-Computer
 	Set-Alias r0 Restart-Computer

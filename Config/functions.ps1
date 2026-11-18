@@ -8,6 +8,33 @@ function Restart-Pwsh {
     exit
 }
 
+function Get-Size {
+	param (
+		[string]$pth = '.', 
+		[Alias('a')] [switch] $All,
+		[Alias('n')] [int] $Top = 0
+	)
+
+	Get-ChildItem -Path $pth -Directory:(!$All) -Force | ForEach-Object {
+
+		$sum = if (!$_.PSIsContainer) { $_.Length } else {
+			(Get-ChildItem -LiteralPath $_.FullName `
+			-Recurse -File -Force -ErrorAction SilentlyContinue
+			| Measure-Object -Property Length -Sum).Sum
+		}
+
+		[pscustomobject]@{ 
+			Bytes = [long]$sum; 
+			Name = $_.Name 
+		}
+
+	}	| Sort-Object Bytes
+		| Select-Object -Last ($Top -gt 0 ? $Top : [int]::MaxValue)
+		| ForEach-Object {
+			"{0,10:n2} mb  {1}" -f ($_.Bytes / 1mb), $_.Name
+		}
+}
+
 if ($IsWindows) {
 	function rmf { Remove-Item @args -Force }
 
