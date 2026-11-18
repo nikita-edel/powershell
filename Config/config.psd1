@@ -7,8 +7,10 @@
 		'setup.ps1'
 		'alias.ps1'
 		'functions.ps1'
-		'ble.ps1'
 		'third-party.ps1'
+		'git.ps1'
+		# after starship: ble wraps the prompt it finds when it attaches
+		'ble.ps1'
 	)
 
 	Windows = @(
@@ -25,7 +27,7 @@
 		Run = @(
 			'linux/env.ps1'
 			'linux/setup.ps1'
-			'linux/ghostty.ps1'
+			'linux/shell-integration.ps1'
 		)
 		DontRun = @()
 	}
