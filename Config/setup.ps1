@@ -21,12 +21,13 @@ if (-not [Console]::IsOutputRedirected) {
 Set-PSReadLineKeyHandler -Chord 'Alt+j' -Function NextSuggestion
 Set-PSReadLineKeyHandler -Chord 'Alt+k' -Function PreviousSuggestion
 
-# linux terminals cannot tell these apart from plain Enter and Escape
+# on linux, kitty/ghostty map shift+enter to \e[1;2M, which .NET decodes as Shift+Enter
+Set-PSReadLineKeyHandler -Chord 'Shift+Enter' -ScriptBlock {
+	[Microsoft.PowerShell.PSConsoleReadLine]::AcceptSuggestion()
+	[Microsoft.PowerShell.PSConsoleReadLine]::NextSuggestion()
+}
+
+# linux terminals cannot tell this apart from plain Escape
 if ($IsWindows) {
 	Set-PSReadLineKeyHandler -Chord 'Shift+Escape' -Function SwitchPredictionView
-
-	Set-PSReadLineKeyHandler -Chord 'Shift+Enter' -ScriptBlock {
-		[Microsoft.PowerShell.PSConsoleReadLine]::AcceptSuggestion()
-		[Microsoft.PowerShell.PSConsoleReadLine]::NextSuggestion()
-	}
 }
